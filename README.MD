@@ -1,5 +1,7 @@
-# Python on Raspberry Pi 4
-Learning how to use a I2C LCD 16x2 display with a Raspberry Pi using Python.
+# CTA Bus Tracker using a Raspberry Pi and an I2C LCD 16x2
+I created a Python app that shows the estimated time the next bus will arrive at my stop onto an LCD 16x2 display.
+
+<Photos Here>
 
 ## Virtual Environment
 * python3-venv https://www.techcoil.com/blog/how-to-use-python-3-virtual-environments-to-run-python-3-applications-on-your-raspberry-pi/
