@@ -25,7 +25,16 @@ I also 3D printed a case for the LCD from [Thingiverse](https://www.thingiverse.
 
 
 ## Notes
+Parameters needed for the URL query string:
+* key = API Key
+* rt = Route
+* stpid = Bus Stop id
+* format = JSON
 
+The response keys used:
+* rtdir = Route direction
+* des = last bus stop
+* prdtm = Predicted time of arrival to bus stop stpid
 
 ### Virtual Environment
 * python3-venv https://www.techcoil.com/blog/how-to-use-python-3-virtual-environments-to-run-python-3-applications-on-your-raspberry-pi/
@@ -41,19 +50,30 @@ ex install:
 To exit environment:
 `deactivate`
 
-### Example JSON response from the CTA API Tracker
-JSON error example:
+### Example JSON response from the CTA Bus Tracker API
 ```
-http://ctabustracker.com/bustime/api/v2/getdirections?key=YOUR_API_KEY_HERE&rt=60&format=json
+http://ctabustracker.com/bustime/api/v2/getpredictions?key=YOUR_API_KEY_HERE&rt=60&stpid=6339&format=json
 
 {
 	"bustime-response": {
-		"directions": [
+		"prd": [
 			{
-				"dir": "Eastbound"
-			},
-			{
-				"dir": "Westbound"
+				"tmstmp": "20200801 17:57",
+				"typ": "A",
+				"stpnm": "Blue Island & 15th Street",
+				"stpid": "6339",
+				"vid": "1663",
+				"dstp": 16216,
+				"rt": "60",
+				"rtdd": "60",
+				"rtdir": "Eastbound",
+				"des": "Randolph/Harbor Dr",
+				"prdtm": "20200801 18:19",
+				"tablockid": "60 -205",
+				"tatripid": "1032776",
+				"dly": false,
+				"prdctdn": "21",
+				"zone": ""
 			}
 		]
 	}
