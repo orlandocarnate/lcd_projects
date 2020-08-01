@@ -1,6 +1,14 @@
 # CTA Bus Tracker using a Raspberry Pi and an I2C LCD 16x2
-I created a Python app that shows the estimated time the next bus will arrive at my stop onto an LCD 16x2 display.
-The Python file is called `cta_tracker.py`
+A CTA Bus Tracker LCD Display using CTA's Bus Tracker API, Python, Raspberry Pi 3, and I2C LCD 16x2 Display.
+
+## About
+A CTA Bus Tracker app `cta_tracker.py` written in Python that displays information on a I2C LCD Display. 
+This device displays:
+* Current Time
+* Route and Direction
+* Stop Location
+* Estimated time of arrival
+* Final stop destination
 
 ## CTA Bus Tracker API
 I used CTA's Bus Tracker API to retrieve info about my local bus route and estimated arrival time at a specific bus stop.
@@ -16,10 +24,10 @@ I found instructions on finding the I2C address at [CircuitBasics.com](https://w
 I also 3D printed a case for the LCD from [Thingiverse](https://www.thingiverse.com/thing:3976921)
 
 
-<Photos Here>
+## Notes
 
 
-## Virtual Environment
+### Virtual Environment
 * python3-venv https://www.techcoil.com/blog/how-to-use-python-3-virtual-environments-to-run-python-3-applications-on-your-raspberry-pi/
 * https://docs.python.org/3/library/venv.html
 `python3 -m venv ~/my_venv_folder`
@@ -33,14 +41,31 @@ ex install:
 To exit environment:
 `deactivate`
 
-### Example JSON data from the CTA API Tracker
+### Example JSON response from the CTA API Tracker
 JSON error example:
+```
+http://ctabustracker.com/bustime/api/v2/getdirections?key=YOUR_API_KEY_HERE&rt=60&format=json
+
+{
+	"bustime-response": {
+		"directions": [
+			{
+				"dir": "Eastbound"
+			},
+			{
+				"dir": "Westbound"
+			}
+		]
+	}
+}
+```
+
+### JSON Error Example
 ```
 {
 	"bustime-response": {
 		"error": [
 			{
-				"rt": "60",
 				"stpid": "6339",
 				"msg": "No arrival times"
 			}
